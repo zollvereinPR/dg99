@@ -45,6 +45,22 @@ Networker.Types = {
 	BF = "BindableFunction"
 } --// Acronyms, crucial
 
+--// Types //--
+
+export type AliasTable = {
+	"RF" | "RE" | "FA" 
+	| "BE" | "RECEIVED" | "BF"
+}
+
+export type RemoteTable = {
+	
+	ID: number,
+	Folder: Folder,
+	last_fired: number,
+	
+}
+
+
 ----------------
 --// System //--
 ----------------
@@ -226,7 +242,7 @@ function Networker.FireBindable(eventID, args)
 	end
 end
 
-function Networker.Fire(eventID, args, towho) --// the default method to fire, automatically checks each previous function
+function Networker.Fire(eventID, args, towho: AliasTable) --// the default method to fire, automatically checks each previous function
 	local state = Networker.GetState()
 	if Networker.CheckIfExists(eventID) == false then
 		Networker.NewEvent(eventID)
@@ -367,7 +383,7 @@ function Networker.OnResponse(eventID, callback)
 	end
 end
 
-function Networker.OnEvent(eventID, bywho, callback) --// DEFAULT method to bind to events, automatically checks previous functions and types.
+function Networker.OnEvent(eventID, bywho: AliasTable, callback) --// DEFAULT method to bind to events, automatically checks previous functions and types.
 	
 	local state = Networker.GetState()
 	if Networker.CheckIfExists(eventID) == false then
@@ -404,7 +420,7 @@ Networker.Allowed = {
 		RECEIVED = Networker.FireToClient,
 		BF = Networker.FireBindableFunction,
 	}
-}
+} --each branch has its own custom fires which can be used by them only.
 
 Networker.AllowedResponses = {
 	client = {
@@ -422,6 +438,6 @@ Networker.AllowedResponses = {
 		BE = Networker.OnBindableEvent,
 		BF = Networker.OnBindableFunction
 	}
-}
+} --each branch has its own custom onevents which can be used by them only.
 
 return Networker
