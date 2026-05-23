@@ -7,7 +7,7 @@
 		
 	Disclaimer:
 		
-		The game provided in the link ALWAYS uses this networking module, and it amounts to over 50 events. 
+		The game provided (16+ players only) in the link ALWAYS uses this networking module, and it amounts to over 50 events. 
 		If needed, i can link other code in THIS repository/game that uses it. But for proof, literally the
 		whole game is built around this.
 		Other example linked here: 
