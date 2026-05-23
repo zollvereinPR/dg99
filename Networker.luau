@@ -11,6 +11,7 @@
 		If needed, i can link other code in THIS repository/game that uses it. But for proof, literally the
 		whole game is built around this.
 		Other example linked here: 
+			https://github.com/zollvereinPR/dg99/blob/main/Enemy_System_SERVER.luau
 		
 	Short Description:
 	
